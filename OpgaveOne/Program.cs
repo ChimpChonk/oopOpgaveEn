@@ -5,26 +5,30 @@ Students ozan = new(4, "Ozan", "Korkmaz", "02-11-2000");
 Students camilla = new(5, "Camilla", "Kløjgaard", "02-11-2003");
 
 
-Teachers niels = new("Teacher", "Niels", "Olesen", "02-23-1971");
+Teachers niels = new("Teacher", "Niels", "Olesen", "23-02-1971");
 
 Course studieteknik = new("Studieteknik", niels);
 Course grundPro = new("Grundl.prog", niels);
 Course oop = new("OOP", niels);
 
-Enrollment en1 = new(sanjit, studieteknik);
-Enrollment en2 = new(sanjit, grundPro);
-Enrollment en3 = new(sanjit, oop);
+List<Enrollment> enList = new()
+{
+    new(sanjit, studieteknik),
+    new(sanjit, grundPro),
+    new(sanjit, oop),
+    new(amanda, studieteknik),
+    new(amanda, grundPro),
+    new(amanda, oop),
+    new(dennis, studieteknik),
+    new(dennis, oop),
+    new(dennis, grundPro),
+    new(ozan, grundPro),
+    new(ozan, oop),
+    new(camilla, grundPro),
+    new(camilla, oop),
+};
 
-Enrollment en4 = new(amanda, studieteknik);
-Enrollment en5 = new(amanda, grundPro);
-Enrollment en6 = new(amanda, oop);
-
-Enrollment en7 = new(dennis, studieteknik);
-Enrollment en8 = new(dennis, oop);
-Enrollment en9 = new(dennis, grundPro);
-
-Enrollment en10 = new(ozan, grundPro);
-Enrollment en11 = new(ozan, oop);
-
-Enrollment en12 = new(camilla, grundPro);
-Enrollment en13 = new(camilla, oop);
+foreach (var item in enList)
+{
+    Console.WriteLine($"{item.StudentInfo.FirstName} {item.StudentInfo.LastName}  Course: {item.CoursesInfo.CourseName}  Teacher: {item.CoursesInfo.Teachers.FirstName} {item.CoursesInfo.Teachers.LastName} ");
+}
