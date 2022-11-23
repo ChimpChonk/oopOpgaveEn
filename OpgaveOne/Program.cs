@@ -11,7 +11,9 @@ Course studieteknik = new("Studieteknik", niels);
 Course grundPro = new("Grundl.prog", niels);
 Course oop = new("OOP", niels);
 
-List<Enrollment> enList = new()
+Enrollment _enrollmentList = new();
+
+_enrollmentList.EnrollList = new List<Enrollment>()
 {
     new(sanjit, studieteknik),
     new(sanjit, grundPro),
@@ -28,7 +30,13 @@ List<Enrollment> enList = new()
     new(camilla, oop),
 };
 
-foreach (var item in enList)
-{
-    Console.WriteLine($"{item.StudentInfo.FirstName} {item.StudentInfo.LastName}  Course: {item.CoursesInfo.CourseName}  Teacher: {item.CoursesInfo.Teachers.FirstName} {item.CoursesInfo.Teachers.LastName} ");
-}
+//foreach (var item in _enrollmentList.EnrollList)
+//{
+//    Console.WriteLine($"{item.StudentInfo.FirstName} {item.StudentInfo.LastName}  Course: {item.CoursesInfo.CourseName}  Teacher: {item.CoursesInfo.Teachers.FirstName} {item.CoursesInfo.Teachers.LastName} ");
+//}
+
+Console.WriteLine(niels.GetAllCourses(_enrollmentList));
+Console.WriteLine(sanjit.GetAllCourses(_enrollmentList));
+
+Console.WriteLine(sanjit.ReturnFullName());
+Console.WriteLine(niels.ReturnFullName());

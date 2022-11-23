@@ -14,5 +14,29 @@ namespace OpgaveOne.Code
             StudentId = _studentId;
         }
 
+        public override string? GetAllCourses(Enrollment enrollment)
+        {
+            StringBuilder sb = new();
+            List<string> coursesList = new List<string>();
+
+            sb.Append($"{FirstName} {LastName}:\n");
+            foreach (var item in enrollment.EnrollList)
+            {
+                if (item.StudentInfo.StudentId == StudentId)
+                {
+                    if (!coursesList.Contains(item.CoursesInfo.CourseName))
+                    {
+                        coursesList.Add(item.CoursesInfo.CourseName);
+                        sb.Append($"{item.CoursesInfo.CourseName}\n");
+                    }
+                }
+            }
+
+            return sb.ToString();
+        }
+        public override string ReturnFullName()
+        {
+            return $"{FirstName} {LastName}";
+        }
     }
 }
