@@ -35,8 +35,10 @@ _enrollmentList.EnrollList = new List<Enrollment>()
 //    Console.WriteLine($"{item.StudentInfo.FirstName} {item.StudentInfo.LastName}  Course: {item.CoursesInfo.CourseName}  Teacher: {item.CoursesInfo.Teachers.FirstName} {item.CoursesInfo.Teachers.LastName} ");
 //}
 
-Console.WriteLine(niels.GetAllCourses(_enrollmentList));
+Console.WriteLine(sanjit.ReturnFullName());
+Console.WriteLine(sanjit.PersonAge());
 Console.WriteLine(sanjit.GetAllCourses(_enrollmentList));
 
-Console.WriteLine(sanjit.ReturnFullName());
 Console.WriteLine(niels.ReturnFullName());
+Console.WriteLine(niels.PersonAge());
+Console.WriteLine(niels.GetAllCourses(_enrollmentList));
