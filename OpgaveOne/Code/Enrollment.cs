@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OpgaveOne.Code
 {
-    internal class Enrollment
+    internal class Enrollment : IComparable<Enrollment>
     {
         public Students StudentInfo { get; set; }
         public Course CoursesInfo { get; set; }
@@ -21,6 +21,15 @@ namespace OpgaveOne.Code
         public Enrollment()
         {
         }
-        
+
+        public int CompareTo(Enrollment? other)
+        {
+            if (other != null)
+            {
+                return StudentInfo.LastName.CompareTo(other.StudentInfo.LastName);
+            }
+
+            else return 1;
+        }
     }
 }

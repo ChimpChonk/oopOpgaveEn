@@ -37,6 +37,8 @@ namespace OpgaveOne.Code
 
         public abstract string? GetAllCourses(Enrollment enrollment);
 
+        public abstract List<string> GetAllCourses(List<Enrollment> enrollment);
+
         public virtual string ReturnFullName()
         {
             return $"{FirstName} {LastName}";

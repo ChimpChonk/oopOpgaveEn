@@ -11,6 +11,7 @@ namespace OpgaveOne.Code
     {
         Enrollment enrollmentlist = new();
         public string Department { get; set; }
+
         public Teachers(string _department, string _firstName, string _lastName, string _dateOfBirth) : base(_firstName, _lastName, _dateOfBirth)
         {
             Department = _department;
@@ -41,12 +42,27 @@ namespace OpgaveOne.Code
 
             return sb.ToString();
         }
+        public override List<string?> GetAllCourses(List<Enrollment> enrollment)
+        {
+            List<string?> coursesList = new List<string?>();
+            foreach (var item in enrollment)
+            {
+                if(item.CoursesInfo.Teachers.FirstName == FirstName && item.CoursesInfo.Teachers.LastName == LastName)
+                {
+                    if (!coursesList.Contains(item.CoursesInfo.CourseName))
+                    {
+                        coursesList.Add(item.CoursesInfo.CourseName.ToString());
+                    }
+                }
+            }
+
+            return coursesList;
+        }
 
         public override string ReturnFullName()
         {
             return $"{FirstName} {LastName}";
         }
-        
 
     }
 }
